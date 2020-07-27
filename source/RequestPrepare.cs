@@ -129,6 +129,7 @@ class RequestPrepare
     }
 
     //Расчитываем CRC
+    //Source: https://github.com/Shden/mercury236/blob/master/mercury236.c
     private UInt16 ModRTU_CRC(byte[] buf, int len)
     {
         UInt16 crc = 0xFFFF;
