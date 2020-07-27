@@ -168,6 +168,7 @@ public class MercuryPowerMeter
     }
 
     // Decode float from 3 bytes
+    // Source: https://github.com/Shden/mercury236/blob/master/mercury236.c
     private float B3F(byte[] b, float factor)
     {
         int val = ((b[0] & 0x3F) << 16) | (b[2] << 8) | b[1];
@@ -175,12 +176,14 @@ public class MercuryPowerMeter
     }
 
     // Decode float from 4 bytes
+    // Source: https://github.com/Shden/mercury236/blob/master/mercury236.c
     private float B4F(byte[] b, float factor)
     {
         int val = ((b[1] & 0x3F) << 24) | (b[0] << 16) | (b[3] << 8) | b[2];
         return val / factor;
     }
 
+    // Source: https://github.com/Shden/mercury236/blob/master/mercury236.c
     private UInt16 ModRTU_CRC(byte[] buf, int len)
     {
         UInt16 crc = 0xFFFF;
